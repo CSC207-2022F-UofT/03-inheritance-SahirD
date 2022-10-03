@@ -41,7 +41,7 @@ public class CrossbodyBag extends Bag{
 
     @Override
     public void enhance() {
-        this.capacity += 2;
+        this.increaseCapacity(2);
     }
 
     public int getNumberOfStraps(){return this.numberOfStraps; }
