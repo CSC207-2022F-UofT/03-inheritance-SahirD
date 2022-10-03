@@ -11,22 +11,44 @@
  *       In addition to the attributes in Bag, the CrossbodyBag should have an
  *       attribute named "numberOfStraps".
  *
- *       The constructor for CrossbodyBag should take the following parameters
+ *       The constructor for CrossbodyBag should take the following parameters      [x]
  *       in order:
  *           1. a String for the color
  *           2. an int for the capacity
  *           3. an int for the number of straps
  *
- *       CrossbodyBag should also have a getter method called getNumberOfStraps
+ *       CrossbodyBag should also have a getter method called getNumberOfStraps     [x]
  *       and it should implement the enhance method.
  *
- *       The enhance method should increase the capacity of the CrossbodyBag by
+ *       The enhance method should increase the capacity of the CrossbodyBag by     [x]
  *       2 (as opposed to the 1 that HandBag increases by).
  *
- *       The toString method should be overridden to return a string in the
+ *       The toString method should be overridden to return a string in the          [x]
  *       in the same form as Bag's toString but with the original "Bag" part
  *       of the string replaced by:
  *           Crossbody Bag with {numberOfStraps} straps
  *
  *       See the tests in test/CrossBodyBagTest.java for examples.
  */
+public class CrossbodyBag extends Bag{
+
+    public int numberOfStraps;
+
+    public CrossbodyBag(String color, int capacity, int numberOfStraps){
+        super(color, capacity);
+        this.numberOfStraps = numberOfStraps;
+    }
+
+    @Override
+    public void enhance() {
+        this.capacity += 2;
+    }
+
+    public int getNumberOfStraps(){return this.numberOfStraps; }
+
+    @Override
+    public String toString(){
+        return this.color + " Crossbody Bag with" + this.numberOfStraps + "straps " + this.numberOfContents + " / " +
+                this.capacity + ")";
+    }
+}
