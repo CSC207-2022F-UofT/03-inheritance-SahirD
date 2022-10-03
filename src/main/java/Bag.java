@@ -17,7 +17,7 @@ public abstract class Bag {
      *       - an array of Strings named contents
      */
     public String color;
-    public int numberOfContents;
+    public int numberOfContents = 0;
     public int capacity;
     public String[] contents;
 
@@ -45,7 +45,7 @@ public abstract class Bag {
      */
     public String getColor(){return this.color; }
 
-    public int getNumberOfContents(){return this.contents.length; }
+    public int getNumberOfContents(){return this.numberOfContents; }
 
     public int getCapacity(){return this.capacity; }
 
@@ -95,19 +95,18 @@ public abstract class Bag {
      * @return
      */
     public String popItem(){
-        if (numberOfContents == 0){return null; }
+        if (numberOfContents != 0) {
 
-        ArrayList<String> temp = new ArrayList<String>(Arrays.asList(contents));
-        String item = contents[contents.length -1];
-        temp.remove(-1);
-        contents = temp.toArray(contents);
-        this.numberOfContents -= 1;
+            ArrayList<String> temp = new ArrayList<String>(Arrays.asList(contents));
+            String item = contents[contents.length - 1];
+            temp.remove(contents.length - 1);
+            contents = temp.toArray(contents);
+            this.numberOfContents -= 1;
 
-        return item;
+            return item;
+        }
+        return null;
     }
-
-
-
 
 
     /**
