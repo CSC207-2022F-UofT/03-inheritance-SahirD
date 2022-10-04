@@ -19,7 +19,7 @@ public abstract class Bag {
     public String color;
     public int numberOfContents = 0;
     public int capacity;
-    public String[] contents;
+    public ArrayList<String> contents = new ArrayList<>();
 
 
     /*
@@ -71,10 +71,8 @@ public abstract class Bag {
      */
     public boolean addItem(String item){
         if (this.numberOfContents < this.capacity){
+            this.contents.add(item);
             this.numberOfContents += 1;
-            ArrayList<String> temp = new ArrayList<String>(Arrays.asList(contents));
-            temp.add(item);
-            contents = temp.toArray(contents);
             return true;
         }
         return false;
@@ -96,11 +94,8 @@ public abstract class Bag {
      */
     public String popItem(){
         if (numberOfContents != 0) {
-
-            ArrayList<String> temp = new ArrayList<String>(Arrays.asList(contents));
-            String item = contents[contents.length - 1];
-            temp.remove(contents.length - 1);
-            contents = temp.toArray(contents);
+            String item = this.contents.get(this.numberOfContents - 1);
+            this.contents.remove(this.numberOfContents - 1);
             this.numberOfContents -= 1;
 
             return item;

@@ -45,6 +45,7 @@ public class HandBagTest {
         assertEquals(1, b.getNumberOfContents());
     }
 
+
     @Test(timeout = 50)
     public void TestGetCapacity() {
         assertEquals(4, b.getCapacity());
